@@ -8,7 +8,8 @@ var memboApp = angular.module('memboApp', [
 
   'memboControllers',
   'memboFilters',
-  'memboServices'
+  'memboServices',
+  'ui.materialize'
 ]);
 
 memboApp.config(['$routeProvider',
