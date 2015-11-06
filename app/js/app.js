@@ -19,10 +19,14 @@ memboApp.config(['$routeProvider',
         templateUrl: 'templates/home.html',
         controller: 'HomeCtrl'
       }).
-      when('/phones/:phoneId', {
-        templateUrl: '../templates/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+      when('/events', {
+        templateUrl: 'templates/events.html',
+        controller: 'EventsCtrl'
       }).
+      when('/members', {
+          templateUrl: 'templates/members.html',
+          controller: 'MembersCtrl'
+        }).
       otherwise({
         redirectTo: '/home'
       });
