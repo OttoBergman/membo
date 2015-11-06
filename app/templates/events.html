@@ -5,6 +5,120 @@
     <title></title>
 </head>
 <body>
+    <div class="navbar-fixed">
+        <nav>
+           Otto will give me this stuff
+        </nav>
+    </div>
+    <div ng-repeat="event in informationList">
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
 
+            <div class="collapsible-header">{{event.name}}</div>
+            <div class="collapsible-body">
+                <h1>{{event.name}}</h1>
+                <div class="row">
+                    <div class="col s3">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>Startdate</td>
+                                <td>{{event.startdate}}</td>
+                            </tr>
+                            <tr>
+                                <td>Enddate</td>
+                                <td>{{event.enddate}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col s3">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>Tickets total</td>
+                                <td>{{event.ticketsTotal}}</td>
+                            </tr>
+                            <tr>
+                                <td>Tickets remaining</td>
+                                <td>{{event.ticketsremaining}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col s3">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>Temp tickets</td>
+                                <td>{{event.totalTemp}}</td>
+                            </tr>
+                            <tr>
+                                <td>Temp. tickets remaining</td>
+                                <td>{{event.remainingTemp}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col s3">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>Ticket price</td>
+                                <td>{{event.ticketprice}}</td>
+                            </tr>
+                            <tr>
+                                <td>Days amount</td>
+                                <td>{{event.amountDays}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p>Bacon ipsum dolor amet jerky shankle cow ground round, picanha pork belly shank bresaola boudin filet mignon tongue. Frankfurter sausage alcatra biltong t-bone chicken, pig drumstick tri-tip shankle beef andouille. Fatback spare ribs venison tri-tip. Pork jowl shank porchetta.
+
+                    Jerky biltong tri-tip frankfurter. Andouille drumstick swine pork chop biltong pork loin. Capicola biltong meatball swine salami doner fatback flank sirloin tail beef ribs kevin ham boudin. Prosciutto hamburger salami sirloin cow ground round brisket pork chop.
+
+                    Porchetta frankfurter spare ribs picanha. T-bone alcatra fatback sirloin chicken, beef ribs meatloaf pork loin cow capicola short loin ham shankle bacon. Corned beef sausage porchetta beef, shank picanha landjaeger turkey chuck kevin pork loin biltong. Drumstick pastrami sausage, pig fatback cow tenderloin pork belly ribeye meatball. Short ribs shankle ribeye, ball tip bacon landjaeger tongue tenderloin ground round rump sausage.
+
+                    Meatball kevin salami t-bone. Alcatra turkey pork chop meatloaf ham andouille kevin swine short ribs pig prosciutto short loin beef pork belly ham hock. Tongue turducken short ribs leberkas, hamburger swine ribeye pork belly. Filet mignon pastrami flank biltong chuck short ribs.
+
+                    Frankfurter shoulder sausage, tongue hamburger ball tip corned beef tail spare ribs pork. Fatback bacon boudin leberkas rump. Rump kielbasa pork prosciutto biltong doner t-bone spare ribs drumstick landjaeger beef short loin. Meatball jowl shank short loin, short ribs cupim swine biltong chicken ribeye frankfurter pork loin turkey. Flank pork chop alcatra, shoulder frankfurter kevin sirloin kielbasa pork ham hock hamburger landjaeger chicken meatloaf.
+                </p>
+
+                <!-- This is just the basic table with the fixed attributes. Some tables should have special columns like diet restrictions or special required information -->
+                <table>
+                    <thead>
+                    <tr>
+                        <th data-field="id">Name</th>
+                        <th data-field="issues">Issues</th>
+                        <th data-field="name">Name</th>
+                        <th data-field="family">Family</th>
+                        <th data-field="sex">Sex</th>
+                        <th data-field="birthday">Birthday</th>
+                        <th data-field="address">Address</th>
+                        <th data-field="mobile">Mobile</th>
+                        <th data-field="email">Email</th>
+                    </tr>
+                    </thead>
+                    <!-- GO ON !!!-->
+                    <tbody>
+                        <tr ng-repeat="person in informationList.memberlist" ng-class="rowClass(person)">
+                            <td >{{person.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </li>
+    </ul>
+    </div>
 </body>
+
+<script>  $(document).ready(function(){
+    $('.collapsible').collapsible({
+        accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+});</script>
 </html>
