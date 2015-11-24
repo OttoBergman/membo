@@ -10,7 +10,7 @@
            Otto will give me this stuff
         </nav>
     </div>
-    <div ng-repeat="event in informationList">
+    <div ng-repeat="event in informationList" id="popupContainer">
     <ul class="collapsible" data-collapsible="accordion">
         <li>
 
@@ -85,12 +85,24 @@
 
                     Frankfurter shoulder sausage, tongue hamburger ball tip corned beef tail spare ribs pork. Fatback bacon boudin leberkas rump. Rump kielbasa pork prosciutto biltong doner t-bone spare ribs drumstick landjaeger beef short loin. Meatball jowl shank short loin, short ribs cupim swine biltong chicken ribeye frankfurter pork loin turkey. Flank pork chop alcatra, shoulder frankfurter kevin sirloin kielbasa pork ham hock hamburger landjaeger chicken meatloaf.
                 </p>
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Search the member" ng-model="searchMember">
+                        </div>
+                    </div>
+                </form>
+                <button ng-click="showTabDialog()">Openstuff</button>
+
 
                 <!-- This is just the basic table with the fixed attributes. Some tables should have special columns like diet restrictions or special required information -->
-                <table>
+                <table class="striped table-bordered responsive-table">
                     <thead>
                     <tr>
-                        <th data-field="id">Name</th>
+                        <th data-field="id">ID</th>
                         <th data-field="issues">Issues</th>
                         <th data-field="name">Name</th>
                         <th data-field="family">Family</th>
@@ -103,8 +115,16 @@
                     </thead>
                     <!-- GO ON !!!-->
                     <tbody>
-                        <tr ng-repeat="person in informationList.memberlist" ng-class="rowClass(person)">
+                        <tr ng-repeat="person in informationList[0]['memberlist'] | filter:searchMember">
+                            <td >{{person.id}}</td>
+                            <td >{{person.issues}}</td>
                             <td >{{person.name}}</td>
+                            <td >{{person.family}}</td>
+                            <td >{{person.sex}}</td>
+                            <td >{{person.birthday}}</td>
+                            <td >{{person.address}}</td>
+                            <td >{{person.mobile}}</td>
+                            <td >{{person.email}}</td>
                         </tr>
                     </tbody>
                 </table>

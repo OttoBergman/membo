@@ -5,12 +5,14 @@
 var memboApp = angular.module('memboApp', [
   'ngRoute',
   'memboAnimations',
-
   'memboControllers',
   'memboFilters',
   'memboServices',
   'ui.materialize',
-  'ngDialog'
+  'ngDialog',
+  'ngMaterial',
+  'ngMessages'
+
 ]);
 
 memboApp.config(['$routeProvider',
