@@ -1,0 +1,99 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add to event</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:800px;max-height:810px;;min-width: 400px">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Add member">
+                    <md-content class="md-padding">
+
+                        <!-- we have to connect the error messages to the js dong -->
+                                <form name="memberForm">
+                                    <md-input-container class="md-block">
+                                        <label>ID</label>
+                                        <input md-maxlength="30" required name="id" ng-model="member.id">
+                                        <div ng-messages="memberForm.id.$error">
+                                            <div ng-message="required">This is required.</div>
+                                            <div ng-message="md-maxlength">The ID has to have 0-8 digits.</div>
+                                        </div>
+                                    </md-input-container>
+
+                                </form>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Add non-member">
+                    <md-content class="md-padding">
+                        <form name="tempMemberForm">
+                            <md-input-container class="md-block">
+                                <label>First Name</label>
+                                <input md-maxlength="30" required name="firstName" ng-model="tempMember.firstName">
+                                <div ng-messages="memberForm.firstName.$error">
+                                    <div ng-message="required">This is required.</div>
+                                    <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Last Name</label>
+                                <input required name="lastName" ng-model="tempMember.lastName">
+                                <div ng-messages="memberForm.lastName.$error">
+                                    <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Sex</label>
+                                <input required name="sex" ng-model="tempMember.sex">
+                                <div ng-messages="memberForm.sex.$error">
+                                    <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Address</label>
+                                <input required name="address" ng-model="tempMember.address">
+                                <div ng-messages="memberForm.address.$error">
+                                    <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Phone number</label>
+                                <input required name="phoneNumber" ng-model="tempMember.phoneNumber">
+                                <div ng-messages="memberForm.address.$error">
+                                    <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Client Email</label>
+                                <input required type="email" name="clientEmail" ng-model="tempMember.clientEmail"
+                                       minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                                <div ng-messages="projectForm.clientEmail.$error" role="alert">
+                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                        Your email must be between 10 and 100 characters long and look like an e-mail address.
+                                    </div>
+                                </div>
+                            </md-input-container>
+                        </form>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="answer('not useful')" >
+                Not Useful
+            </md-button>
+            <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+                Useful
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+
