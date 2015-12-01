@@ -32,6 +32,4 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams',
 memboControllers.controller('MembersCtrl', ['$scope', '$routeParams',
   function($scope, $routeParams) {
 
-
-
   }]);
