@@ -53,9 +53,17 @@
                                     <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                                 </div>
                             </md-input-container>
-                            <md-input-container class="md-block">
-                                <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
-                            </md-input-container>
+                            <form name="myForm" class="md-block">
+                                <md-datepicker name="dateField" ng-model="myDate" md-placeholder="Enter date"
+                                               required md-min-date="minDate" md-max-date="maxDate"
+                                               md-date-filter="onlyWeekendsPredicate"></md-datepicker>
+                                <div class="validation-messages" ng-messages="myForm.dateField.$error">
+                                    <div ng-message="required">This date is required!</div>
+                                    <div ng-message="mindate">Date is too early!</div>
+                                    <div ng-message="maxdate">Date is too late!</div>
+                                    <div ng-message="filtered">Only weekends are allowed!</div>
+                                </div>
+                            </form>
                             <md-input-container class="md-block">
                                 <label>Address</label>
                                 <input required name="address" ng-model="tempMember.address">
