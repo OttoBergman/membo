@@ -12,32 +12,43 @@
         <div class="col s9" align="center"><a class="waves-effect waves-light btn-large">Button</a></div>
     </div>
 
-    <div class="searchContainer">
-        <nav>
-            <div class="nav-wrapper">
-                <form>
-                    <div class="input-field">
-                        <input id="search" type="search" required>
-                        <label for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                    </div>
-                </form>
-            </div>
-        </nav>
+    <div class="dark">
+        <form>
+            <span><input type="text" class="search square" placeholder="search..."><input type="button" value="Search"></span>
+        </form>
     </div>
 
-    <div class="container" style="height: 10em">
-        <table class="striped" align="right" >
-            <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>50</td>
-            </tr>
-            <tr>
-                <td>Eve</td>
-                <td>Jackson</td>
-                <td>94</td>
-            </tr>
+    <div class="listOfMembers">
+        <table class="striped - centered - responsive-table">
+            <thead>
+                <tr>
+                    <th> data-field="firstName"First Name</th>
+                    <th> data-field="lastName"Last Name</th>
+                    <th> data-field="address"Address</th>
+                    <th> data-field="socialNumber"Socialnumber</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Viktor</td>
+                    <td>Karlsson</td>
+                    <td>Växjö</td>
+                    <td>9411025779</td>
+                </tr>
+                <tr>
+                    <td>Otto</td>
+                    <td>Bergman</td>
+                    <td>Växjö</td>
+                    <td>13221321321</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>Spotka</td>
+                    <td>Växjö</td>
+                    <td>21312311212</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </body>

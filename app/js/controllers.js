@@ -85,6 +85,4 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
 memboControllers.controller('MembersCtrl', ['$scope', '$routeParams',
   function($scope, $routeParams) {
 
-
-
   }]);
