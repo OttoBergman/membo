@@ -88,14 +88,11 @@
                 <form>
                     <div class="form-group">
                         <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-search"></i>
-                            </div>
                             <input type="text" class="form-control" placeholder="Search the member" ng-model="searchMember">
                         </div>
                     </div>
                 </form>
-                <button ng-click="showTabDialog()">Openstuff</button>
+                <a class="waves-effect waves-light btn" ng-click="showTabDialog()">Add Participant</a>
 
 
                 <!-- This is just the basic table with the fixed attributes. Some tables should have special columns like diet restrictions or special required information -->
@@ -128,9 +125,7 @@
                         </tr>
                     </tbody>
                 </table>
-
             </div>
-
         </li>
     </ul>
     </div>

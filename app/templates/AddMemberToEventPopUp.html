@@ -1,4 +1,4 @@
-<md-dialog aria-label="Mango (Fruit)">
+<md-dialog>
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -53,17 +53,8 @@
                                     <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                                 </div>
                             </md-input-container>
-                            <form name="myForm" class="md-block">
-                                <md-datepicker name="dateField" ng-model="myDate" md-placeholder="Enter date"
-                                               required md-min-date="minDate" md-max-date="maxDate"
-                                               md-date-filter="onlyWeekendsPredicate"></md-datepicker>
-                                <div class="validation-messages" ng-messages="myForm.dateField.$error">
-                                    <div ng-message="required">This date is required!</div>
-                                    <div ng-message="mindate">Date is too early!</div>
-                                    <div ng-message="maxdate">Date is too late!</div>
-                                    <div ng-message="filtered">Only weekends are allowed!</div>
-                                </div>
-                            </form>
+                            <input type="date" class="datepicker" ng-click="opendatepicker()">
+
                             <md-input-container class="md-block">
                                 <label>Address</label>
                                 <input required name="address" ng-model="tempMember.address">
@@ -95,13 +86,20 @@
         </md-dialog-content>
         <md-dialog-actions layout="row">
             <span flex></span>
-            <md-button ng-click="answer('not useful')" >
-                Not Useful
+            <md-button ng-click="answer()" >
+                Save
             </md-button>
-            <md-button ng-click="answer('useful')" style="margin-right:20px;" >
-                Useful
+            <md-button ng-click="answer()" style="margin-right:20px;" >
+                Abort
             </md-button>
         </md-dialog-actions>
     </form>
 </md-dialog>
 
+<script>  $(document).ready(function(){
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+});
+</script>
