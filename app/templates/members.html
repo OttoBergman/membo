@@ -36,11 +36,18 @@
                 <th data-field="address">Address</th>
                 <th data-field="mobile">Mobile</th>
                 <th data-field="email">Email</th>
+                <th data-field="countryoforigin">Origin</th>
+                <th data-field="dietrestriction">Diet restriction</th>
+                <th data-field="studenttype">Student Type</th>
+                <th data-field="VISnumber">VIS number</th>
+                <th data-field="LOM">Length of membership</th>
+                <th data-field="CBS">CBS</th>
+                <th data-field="ADC">ADC</th>
             </tr>
             </thead>
             <!-- GO ON !!!-->
             <tbody>
-            <tr ng-repeat="person in informationList[0]['memberlist'] | filter:searchMember" ng-click="showConfirm($event)" >
+            <tr ng-repeat="person in informationList[0]['memberlist'] | filter:searchMember" ng-click="changeMember(person)" >
                 <td >{{person.id}}</td>
                 <td >{{person.name}}</td>
                 <td >{{person.family}}</td>
@@ -49,6 +56,13 @@
                 <td >{{person.address}}</td>
                 <td >{{person.mobile}}</td>
                 <td >{{person.email}}</td>
+                <td >{{person.countryoforigin}}</td>
+                <td >{{person.dietrestriction}}</td>
+                <td >{{person.studenttype}}</td>
+                <td >{{person.VISnumber}}</td>
+                <td >{{person.LOM}}</td>
+                <td >{{person.CBS}}</td>
+                <td >{{person.ADC}}</td>
             </tr>
             </tbody>
         </table>

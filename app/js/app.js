@@ -11,7 +11,8 @@ var memboApp = angular.module('memboApp', [
   'ui.materialize',
   'ngDialog',
   'ngMaterial',
-  'ngMessages'
+  'ngMessages',
+  'ngAnimate'
 
 ]);
 

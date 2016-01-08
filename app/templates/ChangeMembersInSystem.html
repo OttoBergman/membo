@@ -1,20 +1,10 @@
 <md-dialog>
-    <form>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h2>Add member</h2>
-                <span flex></span>
-                <md-button class="md-icon-button" ng-click="cancel()">
-                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-                </md-button>
-            </div>
-        </md-toolbar>
-        <md-dialog-content style="max-width:800px;max-height:810px;;min-width: 400px">
             <md-content class="md-padding">
-                <form name="addMemberForm">
+                <form name="changeMemberForm">
                     <md-input-container class="md-block">
                         <label>First Name</label>
-                        <input md-maxlength="30" required name="firstName" ng-model="addMember.firstName">
+
+                        <input md-maxlength="30" required name="firstName" ng-model="changeMember.firstName">
                         <div ng-messages="memberForm.firstName.$error">
                             <div ng-message="required">This is required.</div>
                             <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
@@ -22,14 +12,15 @@
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Last Name</label>
-                        <input required name="lastName" ng-model="addMember.lastName">
+                        <input required name="lastName" ng-model="changeMember.lastName">
+                        {{personChange.family}}
                         <div ng-messages="memberForm.lastName.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Sex</label>
-                        <input required name="sex" ng-model="addMember.sex">
+                        <input required name="sex" ng-model="changeMember.sex">
                         <div ng-messages="memberForm.sex.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                         </div>
@@ -38,21 +29,21 @@
 
                     <md-input-container class="md-block">
                         <label>Address</label>
-                        <input required name="address" ng-model="addMember.address">
+                        <input required name="address" ng-model="changeMember.address">
                         <div ng-messages="memberForm.address.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Phone number</label>
-                        <input required name="phoneNumber" ng-model="addMember.phoneNumber">
+                        <input required name="phoneNumber" ng-model="changeMember.phoneNumber">
                         <div ng-messages="memberForm.address.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Client Email</label>
-                        <input required type="email" name="clientEmail" ng-model="addMember.clientEmail"
+                        <input required type="email" name="clientEmail" ng-model="changeMember.clientEmail"
                                minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
                         <div ng-messages="memberForm.clientEmail.$error" role="alert">
                             <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
@@ -62,18 +53,18 @@
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Country of origin</label>
-                        <input required name="origin" ng-model="addMember.country">
+                        <input required name="origin" ng-model="changeMember.country">
                         <div ng-messages="memberForm.origin.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Diet restriction</label>
-                        <input name="diet" ng-model="addMember.diet">
+                        <input name="diet" ng-model="changeMember.diet">
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Student type</label>
-                        <input name="studentType" ng-model="addMember.studentType">
+                        <input name="studentType" ng-model="changeMember.studentType">
                         <div ng-messages="memberForm.studentType.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                         </div>
@@ -81,14 +72,14 @@
 
                     <md-input-container class="md-block">
                         <label>Vis number</label>
-                        <input required name="visNumber" ng-model="tempMember.visNumber">
+                        <input required name="visNumber" ng-model="changeMember.visNumber">
                         <div ng-messages="memberForm.visNumber.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Length of membership</label>
-                        <input name="membershipLength" ng-model="tempMember.membershipLength">
+                        <input name="membershipLength" ng-model="changeMember.membershipLength">
                         <div ng-messages="memberForm.membershipLength.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required</div>
                         </div>
