@@ -60,7 +60,6 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
     };
 
 
-
     function DialogController($scope, $mdDialog) {
       $scope.member = {};
       $scope.tempMember = {};
@@ -86,14 +85,10 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
           });
       }
     }
-
-
-
-
   }]);
 
-memboControllers.controller('MembersCtrl', ['$scope', '$routeParams',
-  function($scope, $routeParams) {
+memboControllers.controller('MembersCtrl', ['$scope', '$routeParams','ngDialog','$mdDialog',
+  function($scope, $routeParams, ngDialog, $mdDialog) {
     $scope.price = 1350;
     $scope.informationList = new Array();
     $scope.searchMember = '';
@@ -114,5 +109,59 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams',
     $scope.informationList[0]['memberlist'].push(alex);
     $scope.informationList[0]['memberlist'].push(otto);
     $scope.informationList[0]['memberlist'].push(viktor);
+
+
+
+    $scope.showAddMemberDialog = function() {
+      $mdDialog.show({
+        controller: DialogController2 ,
+        templateUrl: 'templates/AddMemberToSystem.html',
+        parent: angular.element(document.body),
+        clickOutsideToClose:true
+      })
+    };
+
+
+    $scope.showConfirm = function (ev) {
+      var confirm = $mdDialog.confirm()
+          .title('Do you really want to delete this user?')
+          .targetEvent(ev)
+          .ok('Yes')
+          .cancel('Nooo');
+      $mdDialog.show(confirm).then(function () {
+        $scope.status = 'Member was removed';
+
+      }, function () {
+        $scope.status = 'Member was kept';
+      });
+    };
+
+
+
+    function DialogController2($scope, $mdDialog) {
+      $scope.member = {};
+      $scope.tempMember = {};
+      $scope.memberForm = {};
+      $scope.memberForm.firstName = {minlength: 5, maxlength: 25,required: true};
+
+      $scope.hide = function() {
+        $mdDialog.hide();
+      };
+      $scope.cancel = function() {
+        $mdDialog.cancel();
+      };
+      $scope.answer = function() {
+        $mdDialog.hide();
+      }
+      $scope.ifEmpty = function(){
+
+      }
+      $scope.opendatepicker = function(){
+        $('.datepicker').pickadate({
+          selectMonths: true, // Creates a dropdown to control month
+          selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+      }
+    }
 
   }]);
