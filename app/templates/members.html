@@ -1,55 +1,81 @@
-<!DOCTYPE html>
-
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
 <body>
-    <div class="row" style="height: 10em">
-        <div class="col s3" align="right"><h4>Members</h4></div>
-        <div class="col s9" align="center"><a class="waves-effect waves-light btn-large">Button</a></div>
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper vis-blue">
+            <a href="#!" class="brand-logo left" style="margin-left: 0.5em;"><img src="images/vis_logo_white.png" height="57em" width="130em"></a>
+            <a href="#" data-activates="mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="hide-on-med-and-down right">
+                <li><a class="nav-link" href="#/home">Home</a></li>
+                <li><a class="nav-link" href="#/events">Events</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile">
+                <li><a href="#/home">Home</a></li>
+                <li><a href="#/events">Events</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search the member" ng-model="searchMember">
+        </div>
     </div>
-
-    <div class="dark">
-        <form>
-            <span><input type="text" class="search square" placeholder="search..."><input type="button" value="Search"></span>
-        </form>
-    </div>
+</form>
+<a class="waves-effect waves-light btn" ng-click="showTabDialog()">Add Participant</a>
 
     <div class="listOfMembers">
-        <table class="striped - centered - responsive-table">
+        <table class="striped table-bordered responsive-table">
             <thead>
-                <tr>
-                    <th> data-field="firstName"First Name</th>
-                    <th> data-field="lastName"Last Name</th>
-                    <th> data-field="address"Address</th>
-                    <th> data-field="socialNumber"Socialnumber</th>
-                </tr>
+            <tr>
+                <th data-field="id">ID</th>
+                <th data-field="name">Name</th>
+                <th data-field="family">Family</th>
+                <th data-field="sex">Sex</th>
+                <th data-field="birthday">Birthday</th>
+                <th data-field="address">Address</th>
+                <th data-field="mobile">Mobile</th>
+                <th data-field="email">Email</th>
+            </tr>
             </thead>
-
+            <!-- GO ON !!!-->
             <tbody>
-                <tr>
-                    <td>Viktor</td>
-                    <td>Karlsson</td>
-                    <td>Växjö</td>
-                    <td>9411025779</td>
-                </tr>
-                <tr>
-                    <td>Otto</td>
-                    <td>Bergman</td>
-                    <td>Växjö</td>
-                    <td>13221321321</td>
-                </tr>
-                <tr>
-                    <td>Alex</td>
-                    <td>Spotka</td>
-                    <td>Växjö</td>
-                    <td>21312311212</td>
-                </tr>
+            <tr ng-repeat="person in informationList[0]['memberlist'] | filter:searchMember" ng-click="showConfirm($event)" >
+                <td >{{person.id}}</td>
+                <td >{{person.name}}</td>
+                <td >{{person.family}}</td>
+                <td >{{person.sex}}</td>
+                <td >{{person.birthday | date:'yyyy-MM-dd'}}</td>
+                <td >{{person.address}}</td>
+                <td >{{person.mobile}}</td>
+                <td >{{person.email}}</td>
+            </tr>
             </tbody>
         </table>
     </div>
+<footer class="page-footer vis-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+    </div>
+</footer>
 </body>
-</html>

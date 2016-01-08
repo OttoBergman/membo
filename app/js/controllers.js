@@ -44,6 +44,22 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
     };
 
 
+    $scope.showConfirm = function (ev) {
+      var confirm = $mdDialog.confirm()
+          .title('Do you really want to delete this user?')
+          .targetEvent(ev)
+          .ok('Yes')
+          .cancel('Nooo');
+      $mdDialog.show(confirm).then(function () {
+        $scope.status = 'Member was removed';
+
+      }, function () {
+        $scope.status = 'Member was kept';
+      });
+
+    };
+
+
 
     function DialogController($scope, $mdDialog) {
       $scope.member = {};
@@ -63,12 +79,12 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
       $scope.ifEmpty = function(){
 
       }
-        $scope.opendatepicker = function(){
-            $('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15 // Creates a dropdown of 15 years to control year
-            });
-        }
+      $scope.opendatepicker = function(){
+          $('.datepicker').pickadate({
+              selectMonths: true, // Creates a dropdown to control month
+              selectYears: 15 // Creates a dropdown of 15 years to control year
+          });
+      }
     }
 
 
@@ -78,5 +94,25 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
 
 memboControllers.controller('MembersCtrl', ['$scope', '$routeParams',
   function($scope, $routeParams) {
+    $scope.price = 1350;
+    $scope.informationList = new Array();
+    $scope.searchMember = '';
+
+
+    var memberList = new Array();
+
+    var halloween = {name:"Halloween", startdate:new Date(), enddate:new Date(), ticketsTotal:500, ticketsremaining:150, ticketprice:300, totalTemp:50, remainingTemp:23, amountDays:1 , memberlist:memberList};
+    var christmas = {name:"Christmas", startdate:new Date(), enddate:new Date(), ticketsTotal:300, ticketsremaining:200, ticketprice:200, totalTemp:50, remainingTemp:40, amountDays:3, memberlist:memberList};
+
+    $scope.informationList.push(halloween);
+    $scope.informationList.push(christmas);
+
+
+    var alex ={id:"10231231", issues:"OK!", name:"Alexander", family:"Spottka", sex:"m", birthday:new Date(), address:"Dongväg 10a", mobile:"03123131231", email:"alex.sp@posteo.de"};
+    var otto ={id:"13371337", issues:"OK!", name:"Otto", family:"Bergmann", sex:"m", birthday:new Date(), address:"Stallvägen 10a", mobile:"2982929299", email:"otto1337@gmail.com"};
+    var viktor ={id:"1238797", issues:"Has real life!", name:"Viktor", family:"Karlsson", sex:"m", birthday:new Date(), address:"RLväg 10a", mobile:"131514213", email:"viktor@reallife.com"}
+    $scope.informationList[0]['memberlist'].push(alex);
+    $scope.informationList[0]['memberlist'].push(otto);
+    $scope.informationList[0]['memberlist'].push(viktor);
 
   }]);
