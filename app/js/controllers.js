@@ -4,8 +4,36 @@
 
 var memboControllers = angular.module('memboControllers', []);
 
-memboControllers.controller('HomeCtrl', ['$scope',
-  function($scope) {
+memboControllers.controller('HomeCtrl', ['$scope','ngDialog','$routeParams','$mdDialog',
+  function($scope,$routeParams, ngDialog, $mdDialog) {
+    $scope.showLoginPopUp = function() {
+      $mdDialog.show({
+        controller: DialogController3 ,
+        templateUrl: 'templates/LoginPopUp.html',
+        parent: angular.element(document.body),
+        clickOutsideToClose:true
+      })
+    };
+
+    function DialogController3($scope, $mdDialog) {
+      $scope.member = {};
+      $scope.tempMember = {};
+      $scope.memberForm = {};
+      $scope.memberForm.firstName = {minlength: 5, maxlength: 25,required: true};
+
+      $scope.hide = function() {
+        $mdDialog.hide();
+      };
+      $scope.cancel = function() {
+        $mdDialog.cancel();
+      };
+      $scope.answer = function() {
+        $mdDialog.hide();
+      };
+      $scope.ifEmpty = function(){
+
+      };
+    }
 
   }]);
 
@@ -74,10 +102,10 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
       };
       $scope.answer = function() {
         $mdDialog.hide();
-      }
+      };
       $scope.ifEmpty = function(){
 
-      }
+      };
       $scope.opendatepicker = function(){
           $('.datepicker').pickadate({
               selectMonths: true, // Creates a dropdown to control month
@@ -152,10 +180,10 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams','ngDialog',
       };
       $scope.answer = function() {
         $mdDialog.hide();
-      }
+      };
       $scope.ifEmpty = function(){
 
-      }
+      };
       $scope.opendatepicker = function(){
         $('.datepicker').pickadate({
           selectMonths: true, // Creates a dropdown to control month

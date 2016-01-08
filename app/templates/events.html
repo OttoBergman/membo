@@ -1,9 +1,11 @@
+
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper vis-blue">
             <a href="#!" class="brand-logo left" style="margin-left: 0.5em;"><img src="images/vis_logo_white.png" height="57em" width="130em"></a>
             <a href="#" data-activates="mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="hide-on-med-and-down right">
+
                 <li><a class="nav-link" href="#/home">Home</a></li>
                 <li><a class="nav-link" href="#/members">Members</a></li>
             </ul>
@@ -11,13 +13,14 @@
                 <li><a href="#/home">Home</a></li>
                 <li><a href="#/members">Members</a></li>
             </ul>
+
         </div>
+
     </nav>
 </div>
     <div ng-repeat="event in informationList" id="popupContainer">
     <ul class="collapsible" data-collapsible="accordion">
         <li>
-
             <div class="collapsible-header">{{event.name}}</div>
             <div class="collapsible-body">
                 <h1>{{event.name}}</h1>
@@ -162,5 +165,11 @@
     $('.collapsible').collapsible({
         accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
-});</script>
+});
+
+$(".dropdown-button").dropdown();
+
+
+
+</script>
 </html>

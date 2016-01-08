@@ -1,0 +1,56 @@
+<md-dialog>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Login</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:800px;max-height:810px;;min-width: 400px">
+            <md-content class="md-padding">
+                <form name="tempMemberForm">
+                    <md-input-container class="md-block">
+                        <label>Email</label>
+                        <input required type="email" name="Email" ng-model="tempMember.Email"
+                               minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                        <div ng-messages="projectForm.Email.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                Your email must be between 10 and 100 characters long and look like an e-mail address.
+                            </div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Password</label>
+                        <input md-maxlength="30" required name="password" type="password" ng-model="tempMember.firstName">
+                        <div ng-messages="memberForm.firstName.$error">
+                            <div ng-message="required">This is required.</div>
+                            <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                        </div>
+                    </md-input-container>
+
+                </form>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="answer()" >
+                Login
+            </md-button>
+            <md-button ng-click="answer()" style="margin-right:20px;" >
+                Abort
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+
+<script>  $(document).ready(function(){
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+});
+</script>
