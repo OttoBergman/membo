@@ -3,7 +3,7 @@
  */
 
 'use strict';
-angular.module('membo.factorys', ['ngResource'])
+angular.module('memboFactorys', ['ngResource'])
 
     .factory('Event', function($resource){
         return $resource('http://vis.eu-gb.mybluemix.net/events/:event', {}, {

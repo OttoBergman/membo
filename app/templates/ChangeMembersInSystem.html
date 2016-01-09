@@ -13,8 +13,7 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Last Name</label>
-                <input required name="lastName" ng-model="changeMember.lastName">
-                {{personChange.family}}
+                <input required name="lastName" ng-model="personChange.family">
                 <div ng-messages="memberForm.lastName.$error">
                     <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                 </div>
