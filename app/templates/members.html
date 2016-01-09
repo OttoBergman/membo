@@ -50,17 +50,17 @@
             <tr ng-repeat="person in informationList | filter:searchMember" ng-click="showChangeMemberDialog(person)" >
                 <td >{{person.id}}</td>
                 <td >{{person.name}}</td>
-                <td >{{person.family}}</td>
+                <td >{{person.familyName}}</td>
                 <td >{{person.sex}}</td>
                 <td >{{person.birthday | date:'yyyy-MM-dd'}}</td>
                 <td >{{person.address}}</td>
-                <td >{{person.mobile}}</td>
+                <td >{{person.phoneNumber}}</td>
                 <td >{{person.email}}</td>
-                <td >{{person.countryoforigin}}</td>
-                <td >{{person.dietrestriction}}</td>
-                <td >{{person.studenttype}}</td>
-                <td >{{person.VISnumber}}</td>
-                <td >{{person.LOM}}</td>
+                <td >{{person.origiin}}</td>
+                <td >{{person.dietRestriction}}</td>
+                <td >{{person.studentType}}</td>
+                <td >{{person.vis_number}}</td>
+                <td >{{person.lengthMembership}}</td>
                 <td >{{person.CBS}}</td>
                 <td >{{person.ADC}}</td>
             </tr>
