@@ -1,118 +1,129 @@
 <md-dialog>
-            <md-content class="md-padding">
-                <form name="changeMemberForm">
-                    <md-input-container class="md-block">
-                        <label>First Name</label>
+    <md-content class="md-padding">
+        <form name="changeMemberForm">
+            <md-input-container class="md-block">
+                <label>First Name</label>
 
-                        <input md-maxlength="30" required name="firstName" ng-model="changeMember.firstName">
-                        <div ng-messages="memberForm.firstName.$error">
-                            <div ng-message="required">This is required.</div>
-                            <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Last Name</label>
-                        <input required name="lastName" ng-model="changeMember.lastName">
-                        {{personChange.family}}
-                        <div ng-messages="memberForm.lastName.$error">
-                            <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Sex</label>
-                        <input required name="sex" ng-model="changeMember.sex">
-                        <div ng-messages="memberForm.sex.$error">
-                            <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
-                        </div>
-                    </md-input-container>
-                    <input type="date" class="datepicker" ng-click="opendatepicker()">
+                <input md-maxlength="30" required name="firstName" ng-model="changeMember.firstName">
 
-                    <md-input-container class="md-block">
-                        <label>Address</label>
-                        <input required name="address" ng-model="changeMember.address">
-                        <div ng-messages="memberForm.address.$error">
-                            <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Phone number</label>
-                        <input required name="phoneNumber" ng-model="changeMember.phoneNumber">
-                        <div ng-messages="memberForm.address.$error">
-                            <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Client Email</label>
-                        <input required type="email" name="clientEmail" ng-model="changeMember.clientEmail"
-                               minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-                        <div ng-messages="memberForm.clientEmail.$error" role="alert">
-                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                                Your email must be between 10 and 100 characters long and look like an e-mail address.
-                            </div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Country of origin</label>
-                        <input required name="origin" ng-model="changeMember.country">
-                        <div ng-messages="memberForm.origin.$error">
-                            <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Diet restriction</label>
-                        <input name="diet" ng-model="changeMember.diet">
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Student type</label>
-                        <input name="studentType" ng-model="changeMember.studentType">
-                        <div ng-messages="memberForm.studentType.$error">
-                            <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
-                        </div>
-                    </md-input-container>
+                <div ng-messages="memberForm.firstName.$error">
+                    <div ng-message="required">This is required.</div>
+                    <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Last Name</label>
+                <input required name="lastName" ng-model="changeMember.lastName">
+                {{personChange.family}}
+                <div ng-messages="memberForm.lastName.$error">
+                    <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Sex</label>
+                <input required name="sex" ng-model="changeMember.sex">
 
-                    <md-input-container class="md-block">
-                        <label>Vis number</label>
-                        <input required name="visNumber" ng-model="changeMember.visNumber">
-                        <div ng-messages="memberForm.visNumber.$error">
-                            <div ng-show="ifEmpty()" ng-message="required">This is required</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Length of membership</label>
-                        <input name="membershipLength" ng-model="changeMember.membershipLength">
-                        <div ng-messages="memberForm.membershipLength.$error">
-                            <div ng-show="ifEmpty()" ng-message="required">This is required</div>
-                        </div>
-                    </md-input-container>
-                    <md-checkbox ng-model="data.cb" aria-label="Checkbox 2" ng-true-value="'yup'" ng-false-value="'nope'">
-                        <label>Accept data collection</label>
-                        <div ng-messages="memberForm.dataCollection.$error">
-                            <div ng-show="ifEmpty()" ng-message="required">This is required</div>
-                        </div>
-                    </md-checkbox>
-                    <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2" ng-true-value="'yup'" ng-false-value="'nope'">
-                        <label>Can be shared?</label>
-                        <div ng-messages="memberForm.dataCollection.$error">
-                            <div ng-show="ifEmpty()" ng-message="required">This is required</div>
-                        </div>
-                    </md-checkbox>
+                <div ng-messages="memberForm.sex.$error">
+                    <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <input type="date" class="datepicker" ng-click="opendatepicker()">
 
-                </form>
-            </md-content>
-        </md-dialog-content>
-        <md-dialog-actions layout="row">
-            <span flex></span>
-            <md-button ng-click="answer()" >
-                Save
-            </md-button>
-            <md-button ng-click="answer()" style="margin-right:20px;" >
-                Abort
-            </md-button>
-        </md-dialog-actions>
+            <md-input-container class="md-block">
+                <label>Address</label>
+                <input required name="address" ng-model="changeMember.address">
+
+                <div ng-messages="memberForm.address.$error">
+                    <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Phone number</label>
+                <input required name="phoneNumber" ng-model="changeMember.phoneNumber">
+
+                <div ng-messages="memberForm.address.$error">
+                    <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Client Email</label>
+                <input required type="email" name="clientEmail" ng-model="changeMember.clientEmail"
+                       minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+
+                <div ng-messages="memberForm.clientEmail.$error" role="alert">
+                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                        Your email must be between 10 and 100 characters long and look like an e-mail address.
+                    </div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Country of origin</label>
+                <input required name="origin" ng-model="changeMember.country">
+
+                <div ng-messages="memberForm.origin.$error">
+                    <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Diet restriction</label>
+                <input name="diet" ng-model="changeMember.diet">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Student type</label>
+                <input name="studentType" ng-model="changeMember.studentType">
+
+                <div ng-messages="memberForm.studentType.$error">
+                    <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Vis number</label>
+                <input required name="visNumber" ng-model="changeMember.visNumber">
+
+                <div ng-messages="memberForm.visNumber.$error">
+                    <div ng-show="ifEmpty()" ng-message="required">This is required</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Length of membership</label>
+                <input name="membershipLength" ng-model="changeMember.membershipLength">
+
+                <div ng-messages="memberForm.membershipLength.$error">
+                    <div ng-show="ifEmpty()" ng-message="required">This is required</div>
+                </div>
+            </md-input-container>
+            <md-checkbox ng-model="data.cb" aria-label="Checkbox 2" ng-true-value="'yup'" ng-false-value="'nope'">
+                <label>Accept data collection</label>
+
+                <div ng-messages="memberForm.dataCollection.$error">
+                    <div ng-show="ifEmpty()" ng-message="required">This is required</div>
+                </div>
+            </md-checkbox>
+            <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2" ng-true-value="'yup'" ng-false-value="'nope'">
+                <label>Can be shared?</label>
+
+                <div ng-messages="memberForm.dataCollection.$error">
+                    <div ng-show="ifEmpty()" ng-message="required">This is required</div>
+                </div>
+            </md-checkbox>
+
+        </form>
+    </md-content>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="answer()">
+            Save
+        </md-button>
+        <md-button ng-click="answer()" style="margin-right:20px;">
+            Abort
+        </md-button>
+    </md-dialog-actions>
     </form>
 </md-dialog>
 
-<script>  $(document).ready(function(){
+<script>  $(document).ready(function () {
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15 // Creates a dropdown of 15 years to control year
