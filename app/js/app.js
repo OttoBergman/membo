@@ -6,6 +6,7 @@ var memboApp = angular.module('memboApp', [
   'ngRoute',
   'memboAnimations',
   'memboControllers',
+  'memboFactorys',
   'memboFilters',
   'memboServices',
   'ui.materialize',
@@ -13,7 +14,8 @@ var memboApp = angular.module('memboApp', [
   'ngMaterial',
   'ngMessages',
   'ngAnimate',
-  'memboFactorys'
+  'ngResource'
+
 
 ]);
 

@@ -227,14 +227,12 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
         }
     }]);
 
-memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog', '$mdDialog',
+memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog', '$mdDialog', 'Member',
     function ($scope, $routeParams, ngDialog, $mdDialog, Member) {
         $scope.informationList = [];
-        Member.get(),function(response){
-            angular.forEach(response,function(member){
-                informationList.push(member);
-            })
-        };
+        $scope.informationList = Member.query(function() {
+            console.log($scope.informationList)
+        });
         $scope.searchMember = '';
 
         /*var alex = {

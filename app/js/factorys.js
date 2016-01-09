@@ -2,7 +2,7 @@
  * Created by otto on 2016-01-09.
  */
 
-'use strict';
+
 angular.module('memboFactorys', ['ngResource'])
 
     .factory('Event', function($resource){
