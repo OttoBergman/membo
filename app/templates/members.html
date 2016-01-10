@@ -3,7 +3,7 @@
     <nav>
         <div class="nav-wrapper vis-blue">
             <a href="#!" class="brand-logo left" style="margin-left: 0.5em;"><img src="images/vis_logo_white.png" height="57em" width="130em"></a>
-            <a href="#" data-activates="mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
+            <a href="#!" data-activates="mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="hide-on-med-and-down right">
                 <li><a class="nav-link" href="#/home">Home</a></li>
                 <li><a class="nav-link" href="#/events">Events</a></li>
@@ -61,8 +61,8 @@
                 <td >{{person.studentType}}</td>
                 <td >{{person.vis_number}}</td>
                 <td >{{person.lengthMembership}}</td>
-                <td >{{person.CBS}}</td>
-                <td >{{person.ADC}}</td>
+                <td >{{person.acceptsSharing}}</td>
+                <td >{{person.acceptsDataCollection}}</td>
             </tr>
             </tbody>
         </table>
@@ -92,4 +92,5 @@
         </div>
     </div>
 </footer>
+<script>$( document ).ready(function(){$(".button-collapse").sideNav({edge: 'right', closeOnClick: true});})</script>
 </body>

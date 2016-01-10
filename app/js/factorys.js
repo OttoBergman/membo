@@ -35,4 +35,19 @@ angular.module('memboFactorys', ['ngResource'])
                 async: false
             }
         });
+    })
+
+    .factory('RootData', function($localstorage){
+
+        var currentPerson = {};
+
+
+        return {
+            setPerson: function (person) {
+                currentPerson = person;
+            },
+            getPerson: function () {
+                return currentPerson;
+            }
+        };
     });
