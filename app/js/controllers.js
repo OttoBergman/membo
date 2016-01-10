@@ -163,26 +163,26 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
         }
 
         function editEventController($scope, $mdDialog) {
-            $scope.event = {};
-            $scope.tempEvent = {};
-            $scope.eventForm = {};
-            $scope.eventForm.firstName = {minlength: 5, maxlength: 25, required: true};
-            $scope.changeEvent = RootData.getEvent();
+                $scope.event = {};
+                $scope.changeEvent = RootData.getPerson();
+                $scope.tempEvent = JSON.parse(JSON.stringify($scope.changeEvent));
+                $scope.eventForm = {};
+                $scope.eventForm.firstName = {minlength: 5, maxlength: 25, required: true};
 
 
+                $scope.hide = function () {
+                    $mdDialog.hide();
+                };
+                $scope.cancel = function () {
+                    $mdDialog.cancel();
+                };
+                $scope.answer = function () {
+                    $scope.changeEvent = $scope.tempEvent;
+                    $mdDialog.hide();
+                };
+                $scope.ifEmpty = function () {
 
-            $scope.hide = function () {
-                $mdDialog.hide();
-            };
-            $scope.cancel = function () {
-                $mdDialog.cancel();
-            };
-            $scope.answer = function () {
-                $mdDialog.hide();
-            };
-            $scope.ifEmpty = function () {
-
-            };
+                };
             $scope.opendatepicker = function () {
                 $('.datepicker').pickadate({
                     selectMonths: true, // Creates a dropdown to control month
@@ -265,10 +265,11 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
 
         function changeMemberController($scope, $mdDialog) {
             $scope.member = {};
-            $scope.tempMember = {};
+            $scope.changeMember = RootData.getPerson();
+            $scope.tempMember = JSON.parse(JSON.stringify($scope.changeMember));
             $scope.memberForm = {};
             $scope.memberForm.firstName = {minlength: 5, maxlength: 25, required: true};
-            $scope.changeMember = RootData.getPerson();
+
 
             $scope.hide = function () {
                 $mdDialog.hide();
@@ -277,6 +278,7 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
                 $mdDialog.cancel();
             };
             $scope.answer = function () {
+                $scope.changeMember = $scope.tempMember;
                 $mdDialog.hide();
             };
             $scope.ifEmpty = function () {
