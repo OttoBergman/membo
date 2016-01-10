@@ -22,17 +22,17 @@
                     </md-input-container>
                     <md-input-container class="md-block">
                     <label>Startdate</label>
-                    <input ng-model="addEventForm.enddate" class="datepicker" ng-click="opendatepicker()">
+                    <input ng-model="addEventForm.endDate" class="datepicker" ng-click="opendatepicker()">
                     </md-input-container>
 
                     <md-input-container class="md-block">
                     <label>Enddate</label>
-                    <input ng-model="addEventForm.startdate" class="datepicker" ng-click="opendatepicker()">
+                    <input ng-model="addEventForm.startDate" class="datepicker" ng-click="opendatepicker()">
                     </md-input-container>
 
                     <md-input-container class="md-block">
                         <label>Amount tickets</label>
-                        <input required name="tickets" ng-model="addEventForm.tickets">
+                        <input required name="tickets" ng-model="addEventForm.maxTickets">
                         <div ng-messages="addEventForm.tickets.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                         </div>
@@ -40,7 +40,7 @@
 
                     <md-input-container class="md-block">
                         <label>Amount guest tickets</label>
-                        <input required name="guesttickets" ng-model="addEventForm.guesttickets">
+                        <input required name="guesttickets" ng-model="addEventForm.maxTempTickets">
 
                         <div ng-messages="addEventForm.guesttickets.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
@@ -49,7 +49,7 @@
 
                     <md-input-container class="md-block">
                         <label>Ticket price</label>
-                        <input required name="ticketprice" ng-model="addEventForm.ticketprice">
+                        <input required name="ticketprice" ng-model="addEventForm.price">
 
                         <div ng-messages="addEventForm.ticketprice.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
