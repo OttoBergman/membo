@@ -227,15 +227,15 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
         }
     }]);
 
-memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog', '$mdDialog', 'Member',
-    function ($scope, $routeParams, ngDialog, $mdDialog, Member) {
+memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog', '$mdDialog', 'Member', 'RootData',
+    function ($scope, $routeParams, ngDialog, $mdDialog, Member, RootData) {
         $scope.informationList = [];
         $scope.informationList = Member.query(function() {
             console.log($scope.informationList)
         });
         $scope.searchMember = '';
 
-        /*var alex = {
+       /* var alex = {
             id: "10231231",
             issues: "OK!",
             name: "Alexander",
@@ -292,8 +292,8 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
         $scope.informationList.push(alex);
         $scope.informationList.push(otto);
         $scope.informationList.push(viktor);
+        */
 
-         */
 
         $scope.showAddMemberDialog = function () {
             $mdDialog.show({
@@ -305,13 +305,11 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
         };
 
         $scope.showChangeMemberDialog = function (person) {
-            $scope.personChange = person;
+            RootData.setPerson(person);
             $mdDialog.show({
                 controller: changeMemberController,
                 templateUrl: 'templates/ChangeMembersInSystem.html',
-                parent: angular.element(document.body),
                 clickOutsideToClose: true,
-                scope: $scope
             })
         };
 
@@ -361,6 +359,7 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
             $scope.member = {};
             $scope.tempMember = {};
             $scope.memberForm = {};
+            $scope.changeMember = RootData.getPerson();
             $scope.memberForm.firstName = {minlength: 5, maxlength: 25, required: true};
 
             $scope.hide = function () {
