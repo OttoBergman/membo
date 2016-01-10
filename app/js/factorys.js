@@ -40,6 +40,7 @@ angular.module('memboFactorys', ['ngResource'])
     .factory('RootData', function($localstorage){
 
         var currentPerson = {};
+        var currentEvent = {};
 
 
         return {
@@ -48,7 +49,14 @@ angular.module('memboFactorys', ['ngResource'])
             },
             getPerson: function () {
                 return currentPerson;
+            },
+            setEvent: function(event) {
+                currentEvent = event;
+            },
+            getEvent: function() {
+                return currentEvent;
             }
+
         };
     })
 
