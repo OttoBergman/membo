@@ -164,7 +164,7 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
 
         function editEventController($scope, $mdDialog) {
                 $scope.event = {};
-                $scope.changeEvent = RootData.getPerson();
+                $scope.changeEvent = RootData.getEvent();
                 $scope.tempEvent = JSON.parse(JSON.stringify($scope.changeEvent));
                 $scope.eventForm = {};
                 $scope.eventForm.firstName = {minlength: 5, maxlength: 25, required: true};
