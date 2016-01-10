@@ -22,9 +22,9 @@
         </div>
     </div>
 </form>
-<a class="waves-effect waves-light btn" ng-click="showAddMemberDialog()">Add new Member</a>
+<a class="waves-effect waves-light btn vis-blue" ng-click="showAddMemberDialog()">Add new Member</a>
 
-    <div class="listOfMembers">
+<div class="listOfMembers">
         <table class="striped table-bordered responsive-table">
             <thead>
             <tr>
@@ -46,7 +46,7 @@
             </tr>
             </thead>
             <!-- GO ON !!!-->
-            <tbody>er
+            <tbody>
             <tr ng-repeat="person in informationList | filter:searchMember" ng-click="showChangeMemberDialog(person)" >
                 <td >{{person.id}}</td>
                 <td >{{person.name}}</td>

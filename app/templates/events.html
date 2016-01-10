@@ -19,9 +19,8 @@
     </nav>
 </div>
 
-<a class="waves-effect waves-light btn" ng-click="showNewEventDialog()">Create Event</a>
+<a class="waves-effect waves-light btn vis-blue" ng-click="showNewEventDialog()">Create Event</a>
     <div ng-repeat="event in eventList" id="popupContainer">
-        {{event}}
     <ul class="collapsible" data-collapsible="accordion">
         <li>
             <div class="collapsible-header">{{event.name}}</div>
@@ -32,8 +31,8 @@
                     </div>
                     <div class="col s2">
                         <br>
-                        <a class="waves-effect waves-light btn" ng-click="showEditEventPopUp(event)">Edit</a>
-                        <a class="waves-effect waves-light btn" ng-click="showConfirmDeleteEvent()">Delete</a>
+                        <a class="waves-effect waves-light btn vis-blue" ng-click="showEditEventPopUp(event)">Edit</a>
+                        <a class="waves-effect waves-light btn vis-blue" ng-click="showConfirmDeleteEvent()">Delete</a>
                     </div>
                 </div>
                 <div class="row">
@@ -104,7 +103,7 @@
                         </div>
                     </div>
                 </form>
-                <a class="waves-effect waves-light btn" ng-click="showAddMemberToEventPopUp()">Add Participant</a>
+                <a class="waves-effect waves-light btn vis-blue" ng-click="showAddMemberToEventPopUp()">Add Participant</a>
 
                 <!-- This is just the basic table with the fixed attributes. Some tables should have special columns like diet restrictions or special required information -->
                 <table class="striped table-bordered responsive-table">

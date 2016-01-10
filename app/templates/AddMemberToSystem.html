@@ -81,25 +81,25 @@
 
                     <md-input-container class="md-block">
                         <label>Vis number</label>
-                        <input required name="visNumber" ng-model="tempMember.visNumber">
+                        <input required name="visNumber" ng-model="addMember.visNumber">
                         <div ng-messages="memberForm.visNumber.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Length of membership</label>
-                        <input name="membershipLength" ng-model="tempMember.membershipLength">
+                        <input name="membershipLength" ng-model="addMember.membershipLength">
                         <div ng-messages="memberForm.membershipLength.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required</div>
                         </div>
                     </md-input-container>
-                    <md-checkbox ng-model="data.cb" aria-label="Checkbox 2" ng-true-value="'yup'" ng-false-value="'nope'">
+                    <md-checkbox ng-model="data.cb" aria-label="Checkbox 2" ng-true-value="'Yes'" ng-false-value="'No'">
                         <label>Accept data collection</label>
                         <div ng-messages="memberForm.dataCollection.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required</div>
                         </div>
                     </md-checkbox>
-                    <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2" ng-true-value="'yup'" ng-false-value="'nope'">
+                    <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2" ng-true-value="'Yes'" ng-false-value="'No'">
                         <label>Can be shared?</label>
                         <div ng-messages="memberForm.dataCollection.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required</div>

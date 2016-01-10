@@ -270,7 +270,6 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
             $scope.memberForm = {};
             $scope.memberForm.firstName = {minlength: 5, maxlength: 25, required: true};
 
-
             $scope.hide = function () {
                 $mdDialog.hide();
             };
