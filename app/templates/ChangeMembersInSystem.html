@@ -24,22 +24,22 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Last Name</label>
-                <input required name="lastName" ng-model="tempMember.familyName">
+                <input required name="lastName" ng-model="tempMember.family_name">
                 <div ng-messages="memberForm.lastName.$error">
                     <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                 </div>
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Sex</label>
-                <input required name="sex" ng-model="tempMember.sex">
+                <input required name="sex" ng-model="tempMember.gender">
 
                 <div ng-messages="memberForm.sex.$error">
                     <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                 </div>
             </md-input-container>
             <md-input-container class="md-block">
-                <lable>Birthday</lable>
-            <input ng-model="tempMember.dateAdded" class="datepicker" ng-click="opendatepicker()">
+                <label>Birthday</label>
+                <input ng-model="tempMember.date_added" class="datepicker" ng-click="opendatepicker()">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Address</label>
@@ -51,7 +51,7 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Phone number</label>
-                <input required name="phoneNumber" ng-model="tempMember.phoneNumber">
+                <input required name="phoneNumber" ng-model="tempMember.phone">
 
                 <div ng-messages="memberForm.address.$error">
                     <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
@@ -70,7 +70,7 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Country of origin</label>
-                <input required name="origin" ng-model="tempMember.origiin">
+                <input required name="origin" ng-model="tempMember.origin">
 
                 <div ng-messages="memberForm.origin.$error">
                     <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
@@ -78,11 +78,11 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Diet restriction</label>
-                <input name="diet" ng-model="tempMember.dietRestriction">
+                <input name="diet" ng-model="tempMember.diet_restriction">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Student type</label>
-                <input name="studentType" ng-model="tempMember.studentType">
+                <input name="studentType" ng-model="tempMember.student_type">
 
                 <div ng-messages="memberForm.studentType.$error">
                     <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
@@ -99,20 +99,22 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Length of membership</label>
-                <input name="membershipLength" ng-model="tempMember.lengthMembership">
+                <input name="membershipLength" ng-model="tempMember.length_of_membership">
 
                 <div ng-messages="memberForm.membershipLength.$error">
                     <div ng-show="ifEmpty()" ng-message="required">This is required</div>
                 </div>
             </md-input-container>
-            <md-checkbox ng-model="tempMember.acceptsDataCollection" aria-label="Checkbox 2" ng-true-value="'Yes'" ng-false-value="'No'">
+            <md-checkbox ng-model="tempMember.accepts_data_collection" aria-label="accepts data collection"
+                         ng-true-value="'Yes'" ng-false-value="'No'">
                 <label>Accept data collection</label>
 
                 <div ng-messages="memberForm.dataCollection.$error">
                     <div ng-show="ifEmpty()" ng-message="required">This is required</div>
                 </div>
             </md-checkbox>
-            <md-checkbox ng-model="tempMember.acceptsSharing" aria-label="Checkbox 2" ng-true-value="'Yes'" ng-false-value="'No'">
+            <md-checkbox ng-model="tempMember.can_be_shared" aria-label="can be shared"
+                         ng-true-value="'Yes'" ng-false-value="'No'">
                 <label>Can be shared?</label>
 
                 <div ng-messages="memberForm.dataCollection.$error">
