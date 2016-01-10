@@ -2,7 +2,7 @@
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Add event</h2>
+                <h2>Edit event</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
@@ -14,7 +14,7 @@
                 <form name="addEventForm">
                     <md-input-container class="md-block">
                         <label>Name</label>
-                        <input md-maxlength="30" required name="Name" ng-model="eventToChange.name">
+                        <input md-maxlength="30" required name="Name" ng-model="changeEvent.name">
 
                         <div ng-messages="addEventForm.Name.$error">
                             <div ng-message="required">This is required.</div>
@@ -22,14 +22,14 @@
                         </div>
                     </md-input-container>
                         <label>Startdate</label>
-                        <input type="date" class="datepicker" ng-click="opendatepicker()">
+                        <input ng-model="changeEvent.startDate" class="datepicker" ng-click="opendatepicker()">
                     <md-input-container class="md-block">
                         <label>Enddate</label>
-                        <input type="date" class="datepicker" ng-click="opendatepicker()">
+                        <input ng-model="changeEvent.endDate" class="datepicker" ng-click="opendatepicker()">
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Amount tickets</label>
-                        <input required name="tickets" ng-model="addEvent.tickets">
+                        <input required name="tickets" ng-model="changeEvent.maxTickets">
 
                         <div ng-messages="addEventForm.tickets.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
@@ -37,7 +37,7 @@
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Amount guest tickets</label>
-                        <input required name="guestTickets" ng-model="addEventForm.guestTickets">
+                        <input required name="guestTickets" ng-model="changeEvent.maxTempTickets">
 
                         <div ng-messages="addEventForm.guestTickets.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
@@ -45,7 +45,7 @@
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Ticket price</label>
-                        <input required name="origin" ng-model="addEventForm.ticketPrice">
+                        <input required name="origin" ng-model="changeEvent.price">
 
                         <div ng-messages="addEventForm.ticketPrice.$error">
                             <div ng-show="ifEmpty()" ng-message="required">This is required.</div>

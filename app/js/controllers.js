@@ -40,8 +40,8 @@ memboControllers.controller('HomeCtrl', ['$scope', 'ngDialog', '$routeParams', '
     }]);
 
 //EVENT CONTROLLER
-memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog', '$mdDialog', 'Event',
-    function ($scope, $routeParams, ngDialog, $mdDialog, Event) {
+memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog', '$mdDialog', 'Event','RootData',
+    function ($scope, $routeParams, ngDialog, $mdDialog, Event, RootData) {
         $scope.eventList = [];
         $scope.eventList = Event.query(function() {
             console.log($scope.eventList)
@@ -70,6 +70,7 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
 
         $scope.showEditEventPopUp = function (event) {
             $scope.eventToChange = event;
+            RootData.setEvent(event);
             $mdDialog.show({
                 controller: editEventController,
                 templateUrl: 'templates/EditEventPopUp.html',
@@ -162,10 +163,13 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
         }
 
         function editEventController($scope, $mdDialog) {
-            $scope.member = {};
-            $scope.tempMember = {};
-            $scope.memberForm = {};
-            $scope.memberForm.firstName = {minlength: 5, maxlength: 25, required: true};
+            $scope.event = {};
+            $scope.tempEvent = {};
+            $scope.eventForm = {};
+            $scope.eventForm.firstName = {minlength: 5, maxlength: 25, required: true};
+            $scope.changeEvent = RootData.getEvent();
+
+
 
             $scope.hide = function () {
                 $mdDialog.hide();
