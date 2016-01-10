@@ -3,16 +3,34 @@
     <nav>
         <div class="nav-wrapper vis-blue">
             <a href="#!" class="brand-logo left" style="margin-left: 0.5em;"><img src="images/vis_logo_white.png" height="57em" width="130em"></a>
+            <a href="#" data-activates="mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="hide-on-med-and-down right">
+
+                <li><a class="nav-link" scroll-to="indexContainer" offset="250">Log In</a></li>
+
+            </ul>
+            <ul class="side-nav" id="mobile">
+                <li><a href="#indexContainer">Log In</a></li>
+            </ul>
 
         </div>
     </nav>
 </div>
-<div class="parallax-container" style="z-index: 0 !important;">
+<div class="parallax-container" style="z-index: 0 !important; height: 100vh">
+    <div class="section no-pad-bot" style="padding-top: 25vh">
+        <div class="container">
+            <h1 class="header center white-text text-lighten-2">Membo</h1>
+            <div class="row center">
+                <h5 class="header col s12 light white-text">A ViS administration page.</h5>
+            </div>
+            <br><br>
+        </div>
+    </div>
     <div parallax class="parallax">
         <img src="images/background2.jpg"/>
     </div>
 </div>
-<div class="container" id="indexContainer" >
+<div class="container" id="indexContainer">
     <div class="section">
         <h2 class="center lights">Login</h2>
         <div>
@@ -66,5 +84,6 @@
         </div>
     </div>
 </footer>
+<script>$( document ).ready(function(){$(".button-collapse").sideNav({edge: 'right', closeOnClick: true});})</script>
 
 

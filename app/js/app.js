@@ -14,7 +14,8 @@ var memboApp = angular.module('memboApp', [
   'ngMaterial',
   'ngMessages',
   'ngAnimate',
-  'ngResource'
+  'ngResource',
+  'smoothScroll'
 
 
 ]);
