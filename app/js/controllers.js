@@ -37,7 +37,7 @@ memboControllers.controller('HomeCtrl', ['$scope', 'ngDialog', '$routeParams', '
 
     }]);
 
-memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog', '$mdDialog',
+memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog', '$mdDialog', 'RootData',
     function ($scope, $routeParams, ngDialog, $mdDialog) {
         $scope.price = 1350;
         $scope.informationList = [];

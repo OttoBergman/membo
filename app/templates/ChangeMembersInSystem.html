@@ -26,7 +26,10 @@
                     <div ng-show="ifEmpty()" ng-message="required">This is required.</div>
                 </div>
             </md-input-container>
+            <md-input-container class="md-block">
+                <lable>Birthday</lable>
             <input ng-model="changeMember.dateAdded" class="datepicker" ng-click="opendatepicker()">
+            </md-input-container>
             <md-input-container class="md-block">
                 <label>Address</label>
                 <input required name="address" ng-model="changeMember.address">
