@@ -148,7 +148,7 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
             };
             $scope.answer = function () {
                 Event.save($scope.addEventForm);
-               console.log($scope.addEventForm);
+                console.log($scope.addEventForm);
                 $mdDialog.hide();
             };
             $scope.ifEmpty = function () {
@@ -239,6 +239,7 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
 
         function addMemberController($scope, $mdDialog) {
             $scope.member = {};
+            $scope.addMember = {};
             $scope.tempMember = {};
             $scope.memberForm = {};
             $scope.memberForm.firstName = {minlength: 5, maxlength: 25, required: true};
@@ -250,6 +251,8 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
                 $mdDialog.cancel();
             };
             $scope.answer = function () {
+                Member.save($scope.addMember);
+                console.log($scope.addMember);
                 $mdDialog.hide();
             };
             $scope.ifEmpty = function () {
@@ -278,6 +281,8 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
             };
             $scope.answer = function () {
                 $scope.changeMember = $scope.tempMember;
+                Member.save($scope.changeMember);
+                console.log($scope.changeMember);
                 $mdDialog.hide();
             };
             $scope.ifEmpty = function () {
