@@ -18,8 +18,10 @@
 
     </nav>
 </div>
-<a class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons" ng-click="showNewEventDialog()">add</i></a>
-    <div ng-repeat="event in informationList" id="popupContainer">
+
+<a class="waves-effect waves-light btn" ng-click="showNewEventDialog()">Create Event</a>
+    <div ng-repeat="event in eventList" id="popupContainer">
+        {{event}}
     <ul class="collapsible" data-collapsible="accordion">
         <li>
             <div class="collapsible-header">{{event.name}}</div>
@@ -40,11 +42,11 @@
                             <tbody>
                             <tr>
                                 <td>Startdate</td>
-                                <td>{{event.startdate | date:'yyyy-MM-dd'}}</td>
+                                <td>{{event.startDate | date:'yyyy-MM-dd'}}</td>
                             </tr>
                             <tr>
                                 <td>Enddate</td>
-                                <td>{{event.enddate | date:'yyyy-MM-dd'}}</td>
+                                <td>{{event.endDate | date:'yyyy-MM-dd'}}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -54,7 +56,7 @@
                             <tbody>
                             <tr>
                                 <td>Tickets total</td>
-                                <td>{{event.ticketsTotal}}</td>
+                                <td>{{event.maxTickets}}</td>
                             </tr>
                             <tr>
                                 <td>Tickets remaining</td>
@@ -68,7 +70,7 @@
                             <tbody>
                             <tr>
                                 <td>Temp tickets</td>
-                                <td>{{event.totalTemp}}</td>
+                                <td>{{event.maxTempTickets}}</td>
                             </tr>
                             <tr>
                                 <td>Temp. tickets remaining</td>
@@ -82,7 +84,7 @@
                             <tbody>
                             <tr>
                                 <td>Ticket price</td>
-                                <td>{{event.ticketprice}}</td>
+                                <td>{{event.price}}</td>
                             </tr>
                             <tr>
                                 <td>Days amount</td>
@@ -109,7 +111,7 @@
                         </div>
                     </div>
                 </form>
-                <a class="waves-effect waves-light btn" ng-click="showTabDialog()">Add Participant</a>
+                <a class="waves-effect waves-light btn" ng-click="showAddMemberToEventPopUp()">Add Participant</a>
 
                 <!-- This is just the basic table with the fixed attributes. Some tables should have special columns like diet restrictions or special required information -->
                 <table class="striped table-bordered responsive-table">

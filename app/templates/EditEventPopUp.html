@@ -14,18 +14,15 @@
                 <form name="addEventForm">
                     <md-input-container class="md-block">
                         <label>Name</label>
-                        <input md-maxlength="30" required name="Name" ng-model="addEvent.Name">
-                        {{eventToChange.name}}
+                        <input md-maxlength="30" required name="Name" ng-model="eventToChange.name">
+
                         <div ng-messages="addEventForm.Name.$error">
                             <div ng-message="required">This is required.</div>
                             <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container class="md-block">
                         <label>Startdate</label>
                         <input type="date" class="datepicker" ng-click="opendatepicker()">
-                        {{eventToChange.startdate}}
-                    </md-input-container>
                     <md-input-container class="md-block">
                         <label>Enddate</label>
                         <input type="date" class="datepicker" ng-click="opendatepicker()">
