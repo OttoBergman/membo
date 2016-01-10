@@ -15,6 +15,7 @@
     "angular-animate": "1.4.x",
     "ng-dialog": "~0.5.5",
     "angular-material": "latest",
-    "angular-messages": "~1.4.8"
+    "angular-messages": "~1.4.8",
+    "ngSmoothScroll": "~2.0.0"
   }
 }
