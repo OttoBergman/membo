@@ -193,20 +193,6 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
             })
         };
 
-        $scope.showConfirm = function (ev) {
-            var confirm = $mdDialog.confirm()
-                .title('Do you really want to delete this user?')
-                .targetEvent(ev)
-                .ok('Yes')
-                .cancel('Nooo');
-            $mdDialog.show(confirm).then(function () {
-                $scope.status = 'Member was removed';
-
-            }, function () {
-                $scope.status = 'Member was kept';
-            });
-        };
-
 
         function addMemberController($scope, $mdDialog) {
             $scope.member = {};
@@ -261,14 +247,25 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
                 $mdDialog.hide();
             };
 
-            $scope.delete = function() {
-                Member.delete({memberId: $scope.changeMember.id});
-                $mdDialog.hide();
-            };
-
             $scope.ifEmpty = function () {
 
             };
+
+            $scope.showDeleteConfirm = function (ev) {
+                var confirm = $mdDialog.confirm()
+                    .title('Do you really want to delete this user?')
+                    .targetEvent(ev)
+                    .ok('Yes')
+                    .cancel('Nooo');
+                $mdDialog.show(confirm).then(function () {
+                    Member.delete({memberId: $scope.changeMember.id});
+                    $scope.status = 'Member was removed';
+
+                }, function () {
+                    $scope.status = 'Member was kept';
+                });
+            };
+
             $scope.opendatepicker = function () {
                 $('.datepicker').pickadate({
                     selectMonths: true, // Creates a dropdown to control month
