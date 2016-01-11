@@ -3,10 +3,10 @@
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools vis-blue">
-                <h2>Change Member</h2>
+                <h2>Change/delete Member</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
-                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                    <i class="material-icons md-24" aria-label="Close dialog">close</i>
                 </md-button>
             </div>
         </md-toolbar>
@@ -39,7 +39,7 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Birthday</label>
-                <input ng-model="tempMember.date_added" class="datepicker" ng-click="opendatepicker()">
+                <input ng-model="tempMember.birthday" class="datepicker" ng-click="opendatepicker()">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Address</label>
@@ -124,14 +124,16 @@
 
         </form>
     </md-content>
-    </md-dialog-content>
     <md-dialog-actions layout="row">
         <span flex></span>
-        <md-button ng-click="answer()">
-            Save
+        <md-button ng-click="delete()" style="margin-right:20px;">
+            Delete
         </md-button>
-        <md-button ng-click="answer()" style="margin-right:20px;">
+        <md-button ng-click="cancel()" style="margin-right:20px;">
             Abort
+        </md-button>
+        <md-button ng-click="accept()">
+            Save
         </md-button>
     </md-dialog-actions>
     </form>

@@ -6,36 +6,33 @@
 angular.module('memboFactorys', ['ngResource'])
 
     .factory('Event', function($resource){
-        return $resource('http://vis.eu-gb.mybluemix.net/events/:event', {}, {
-            'get': {method: 'GET', isArray: true}
-        });
-    })
-
-
-    .factory('Event', function($resource){
-        return $resource('http://vis.eu-gb.mybluemix.net/events', {}, {
+        return $resource('http://vis.eu-gb.mybluemix.net/events/:eventId', {}, {
+            'get': {method: 'GET', params: {id: '@eventId'}},
+            'query': {method: 'GET', isArray: true},
             'save': {method: 'POST',
                 headers: { 'Content-Type': 'application/json'},
                 async: false
-            }
-        });
-    })
-
-    .factory('Member', function($resource){
-        return $resource('http://vis.eu-gb.mybluemix.net/members/:member', {}, {
-            'get': {method: 'GET', isArray: true}
+            },
+            'update': {method:'PUT', params: {id: '@eventId'}},
+            'delete': {method:'DELETE'}
         });
     })
 
 
     .factory('Member', function($resource){
-        return $resource('http://vis.eu-gb.mybluemix.net/members', {}, {
+        return $resource('http://vis.eu-gb.mybluemix.net/members/:memberId', {}, {
+            'get': {method: 'GET', params: {id: '@memberId'}},
+            'query': {method: 'GET', isArray: true},
             'save': {method: 'POST',
                 headers: { 'Content-Type': 'application/json'},
                 async: false
-            }
+            },
+            'update': {method:'PUT', params: {id: '@memberId'}},
+            'delete': {method:'DELETE'}
         });
     })
+
+
 
     .factory('RootData', function($localstorage){
 

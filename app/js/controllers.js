@@ -222,6 +222,8 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
                 $mdDialog.cancel();
             };
             $scope.answer = function () {
+                var date = new Date().toString();
+                $scope.addMember.date_added = date;
                 Member.save($scope.addMember);
                 console.log($scope.addMember);
                 $mdDialog.hide();
@@ -250,12 +252,18 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
             $scope.cancel = function () {
                 $mdDialog.cancel();
             };
-            $scope.answer = function () {
+            $scope.accept = function () {
                 $scope.changeMember = $scope.tempMember;
-                Member.save($scope.changeMember);
+                Member.update({memberId: $scope.changeMember.id}, $scope.changeMember);
                 console.log($scope.changeMember);
                 $mdDialog.hide();
             };
+
+            $scope.delete = function() {
+                Member.delete({memberId: $scope.changeMember.id});
+                $mdDialog.hide();
+            };
+
             $scope.ifEmpty = function () {
 
             };
