@@ -211,6 +211,8 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
         function addMemberController($scope, $mdDialog) {
             $scope.member = {};
             $scope.addMember = {};
+            $scope.addMember.can_be_shared = "No";
+            $scope.addMember.accepts_data_collection = "No";
             $scope.tempMember = {};
             $scope.memberForm = {};
             $scope.memberForm.firstName = {minlength: 5, maxlength: 25, required: true};
