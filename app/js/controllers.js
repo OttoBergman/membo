@@ -18,9 +18,10 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
             console.log($scope.eventList)
         });
 
-        $scope.searchMember = '';
-        var memberList = [];
+        $scope.subList = [];
+        $scope.subList = Event
 
+        $scope.searchMember = '';
         $scope.showAddMemberToEventPopUp = function () {
             $mdDialog.show({
                 controller: AddMemberToEventController,
@@ -134,12 +135,8 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
         }
 
         function editEventController($scope, $mdDialog) {
-                $scope.event = {};
                 $scope.changeEvent = RootData.getEvent();
                 $scope.tempEvent = JSON.parse(JSON.stringify($scope.changeEvent));
-                $scope.eventForm = {};
-                $scope.eventForm.firstName = {minlength: 5, maxlength: 25, required: true};
-
 
                 $scope.hide = function () {
                     $mdDialog.hide();
@@ -149,6 +146,8 @@ memboControllers.controller('EventsCtrl', ['$scope', '$routeParams', 'ngDialog',
                 };
                 $scope.answer = function () {
                     $scope.changeEvent = $scope.tempEvent;
+                    Event.update({eventId: $scope.changeEvent.eventID}, $scope.changeEvent);
+                    console.log($scope.changeEvent);
                     $mdDialog.hide();
                 };
                 $scope.ifEmpty = function () {
@@ -188,7 +187,7 @@ memboControllers.controller('MembersCtrl', ['$scope', '$routeParams', 'ngDialog'
                 controller: changeMemberController,
                 templateUrl: 'templates/ChangeMembersInSystem.html',
                 parent: angular.element(document.body),
-                clickOutsideToClose: true,
+                clickOutsideToClose: true
 
             })
         };
